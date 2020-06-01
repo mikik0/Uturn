@@ -1,18 +1,24 @@
 require 'bundler/setup'
 Bundler.require
 require 'sinatra/reloader' if development?
-
-require './models/item.rb'
+require 'open-uri'
+require 'sinatra/json'
+require './models/contribution.rb'
 
 get '/' do
+  @comments = Contribution.all.order('id desc')
   erb :index
 end
 
 post '/' do
-  "Hello World"
+  erb :show
 end
 
 post '/new' do
-  "Hello World!"
+  Contribution.create({
+    title: params[:title],
+    body: params[:body],
+    course: params[:course]
+  })
   redirect '/'
 end
