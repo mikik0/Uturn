@@ -9,7 +9,7 @@
 <div>
 <h2>見る</h2>
 <label for="prefs">出身都道府県</label>
- <form action="" method="post">
+<%= form_tag(search_path,:method => 'get') do %>
       <select name="prefs" id="prefs">
         <option value="">-- 都道府県を選択して下さい --</option>
         <option value="北海道">北海道</option>
@@ -61,6 +61,7 @@
         <option value="沖縄県">沖縄県</option>
       </select>
   <p><input type="submit" value="送信"></p>
+  <% end %>
   <br>
 </form>
 
