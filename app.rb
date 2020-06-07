@@ -9,21 +9,22 @@ require './models/contribution.rb'
 get '/' do
   @comments = Contribution.all.order('id desc')
   @prefectures = Prefecture.all
+  p '###########'
+  p @prefectures
+
   erb :index
 end
 
-post '/' do
-  Contribution.create({
-    title: params[:title],
-    body: params[:body],
-    course: params[:course]
-  })
+get '/prefecture/:id' do
+  @prefectures   = Prefecture.all
+  @prefecture    = Prefecture.find(params[:id])
+  @prefecture_name = @prefecture.name
   erb :show
 end
 
 post '/new' do
   Contribution.create({
-    title: params[:title],
+    prefecture_id: params[:prefecture],
     body: params[:body],
     course: params[:course]
   })
