@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_142638) do
+ActiveRecord::Schema.define(version: 2020_06_07_054629) do
 
   create_table "comments", force: :cascade do |t|
     t.string "body"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_142638) do
     t.string "course"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "prefecture_id"
   end
 
   create_table "prefectures", force: :cascade do |t|
