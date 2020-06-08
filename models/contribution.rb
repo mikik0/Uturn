@@ -4,7 +4,7 @@ class Prefecture < ActiveRecord::Base
 end
 
 class Contribution < ActiveRecord::Base
-  belongs_to :prefectures
+  belongs_to :prefecture
   has_many :comments
 end
 

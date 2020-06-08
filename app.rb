@@ -11,6 +11,8 @@ get '/' do
   @contributions = Contribution.all
   @prefectures = Prefecture.all
   p '###########'
+  p @contributions
+  p '###########'
   p @prefectures
 
   erb :index
@@ -19,7 +21,6 @@ end
 get '/prefecture/:id' do
   @prefectures   = Prefecture.all
   @prefecture    = Prefecture.find(params[:id])
-  @prefecture_name = @prefecture.name
   @contributions = @prefecture.contributions
   erb :show
 end

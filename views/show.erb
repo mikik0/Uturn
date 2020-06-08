@@ -5,9 +5,15 @@
   <title>投稿内容を確認</title>
 </head>
 <body>
-<h1> <% @prefecture.name %> 投稿内容を確認</h1>
+<h1> <%= @prefecture.name %>の投稿内容を確認</h1>
 
+<% @contributions.each do |contribution| %>
+  <% if contribution.prefecture_id == params[:id].to_i %>
+    <p><%= contribution.body%>
+    <%= contribution.course%></p>
+  <% end %>
 
+<% end %>
 
 
 <form action="/" method="get">
