@@ -12,6 +12,10 @@
     <a href="/prefecture/<%= prefecture.id %>"><%= prefecture.name %></a>
 <% end %>
 
+<% if @prefecture_name.present? %>
+  <h2><%= @prefecture_name %></h2>
+<% end %>
+
 
 <h2>投稿する</h2>
 <form  action="/new" method="post">
@@ -31,10 +35,15 @@
 <p><input type="submit" value="送信"></p>
 </form>
 
+<% @contributions.each do |contribution| %>
+<div>
+  <p><%= contribution.prefecture_id.try(:name) %></p>
+</div>
+<% end %>
 
 <% @comments.each do |comment| %>
 <div>
-  <p><%= comment.prefecture_id.try(:name) %>
+  <p><%= comment.prefecture_id %>
   <%= comment.course%>
   <%= comment.body%></p>
 </div>

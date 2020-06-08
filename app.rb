@@ -8,6 +8,7 @@ require './models/contribution.rb'
 
 get '/' do
   @comments = Contribution.all.order('id desc')
+  @contributions = Contribution.all
   @prefectures = Prefecture.all
   p '###########'
   p @prefectures
@@ -19,14 +20,15 @@ get '/prefecture/:id' do
   @prefectures   = Prefecture.all
   @prefecture    = Prefecture.find(params[:id])
   @prefecture_name = @prefecture.name
+  @contributions = @prefecture.contributions
   erb :show
 end
 
 post '/new' do
   Contribution.create({
     prefecture_id: params[:prefecture],
-    body: params[:body],
-    course: params[:course]
+    course: params[:course],
+    body: params[:body]
   })
   redirect '/'
 end
