@@ -10,11 +10,6 @@ get '/' do
   @comments = Contribution.all.order('id desc')
   @contributions = Contribution.all
   @prefectures = Prefecture.all
-  p '###########'
-  p @contributions
-  p '###########'
-  p @prefectures
-
   erb :index
 end
 
@@ -22,6 +17,7 @@ get '/prefecture/:id' do
   @prefectures   = Prefecture.all
   @prefecture    = Prefecture.find(params[:id])
   @contributions = @prefecture.contributions
+  @comments = Comment.where(prefecture_id: params[:id])
   erb :show
 end
 
@@ -32,4 +28,18 @@ post '/new' do
     body: params[:body]
   })
   redirect '/'
+end
+
+get '/comment' do
+
+  erb :comment
+end
+
+
+post '/comment_create' do
+Comment.create(
+contribution_id: params[:contribution_id],
+body: params[:body]
+)
+redirect "/prefecture/#{params[:prefecture_id]}"
 end
