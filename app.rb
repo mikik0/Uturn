@@ -13,7 +13,7 @@ get '/' do
   erb :index
 end
 
-get '/prefecture/:id' do
+get '/prefectures/:id/contributions' do
   @prefectures   = Prefecture.all
   @prefecture    = Prefecture.find(params[:id])
   @contributions = @prefecture.contributions
@@ -30,8 +30,9 @@ post '/new' do
   redirect '/'
 end
 
-get '/comment' do
-
+get '/prefectiures/:id/contributions/:c_id/comments' do
+p '###############'
+p params
   erb :comment
 end
 

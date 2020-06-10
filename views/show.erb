@@ -9,13 +9,14 @@
 <body>
 <h1> <%= @prefecture.name %>の投稿内容を確認</h1>
   <p style ="font-size: 18pt">進路  文理</p>
-<% @contributions.each do |contribution| %>
+  <% @contributions.each do |contribution| %>
   <% if contribution.prefecture_id == params[:id].to_i %>
     <p style ="font-size: 18pt">
     <%= contribution.body%>
     <%= contribution.course%>
-    <form action="/comment" method="get">
+    <form action="/prefectiures/<%= @prefecture.id %>/contributions/<%= contribution.id %>/comments" method="get">
       <input type="submit" value="コメントを見る/つける">
+      <input type="hidden" name="c_id" value="<%= contribution.id %>">
     </form>
     </p>
   <% end %>
