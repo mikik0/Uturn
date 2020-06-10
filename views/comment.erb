@@ -15,12 +15,17 @@
 </form>
 
 <form method="post" action="/comment_create">
-<input type="hidden" name="prefecture_id" value="<%= @prefecture.id %>">
+<input type="hidden" name="#" value="#">
   <textarea type="text" name="body"></textarea>
   <p><input type="submit" value="投稿"></p>
 </form>
 
-
+<h2>てすと</h2>
+<% if @contribution.comments.present?%>
+  <p>あります</p>
+<% else %>
+  <p>ないです</p>
+<% end %>
 
 <form action="/prefecture" method="get">
     <input type="submit" value="前に戻る">
