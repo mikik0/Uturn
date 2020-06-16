@@ -4,21 +4,28 @@
   <meta charset="UTF-8">
   <title>コメント</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="../assets/stylesheets/style.css">
+  <link rel="stylesheet" href="public/assets/stylesheets/style.css">
 </head>
 <body>
 <h1>コメントをする</h1>
 <br>
-<form action="#" method="#">
- <textarea name="body" placeholder="コメントを入れてね" required></textarea></p>
-  <p><input type="submit" value="投稿" class="button"></p>
-</form>
 
-<form method="post" action="/comment_create">
-<input type="hidden" name="#" value="#">
-  <textarea type="text" name="body"></textarea>
+<form action="/comment_create" method="post">
+  <input type="hidden" name="c_id" value="<%= @contribution.id %>">
+  <textarea type="text" placeholder="コメントを入れてね" name="body" required></textarea>
   <p><input type="submit" value="投稿"></p>
 </form>
+<br>
+
+<% @comments.each do |comment| %>
+  <div>
+    <ul>
+    <li>
+    <%= comment.body%>
+    </li>
+    </ul>
+  </div>
+<% end %>
 
 <h2>てすと</h2>
 <% if @contribution.comments.present?%>
@@ -27,7 +34,7 @@
   <p>ないです</p>
 <% end %>
 
-<form action="/prefecture" method="get">
+<form action="/prefectures/1/contributions" method="get">
     <input type="submit" value="前に戻る">
 </form>
 <form action="/" method="get">

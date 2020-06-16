@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <title>投稿内容を確認</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" href="../assets/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="public/assets/stylesheets/style.css">
 </head>
 <body>
-<h1> <%= @prefecture.name %>の投稿内容を確認</h1>
+<h1><%= @prefecture.name %>の投稿内容を確認</h1>
   <p style ="font-size: 18pt">進路  文理</p>
   <% @contributions.each do |contribution| %>
   <% if contribution.prefecture_id == params[:id].to_i %>
@@ -16,7 +16,7 @@
     <%= contribution.course%>
     <form action="/prefectiures/<%= @prefecture.id %>/contributions/<%= contribution.id %>/comments" method="get">
       <input type="submit" value="コメントを見る/つける">
-      <input type="hidden" name="c_id" value="<%= contribution.id %>">
+      <input type="hidden" name="c_id" value="<%=  contribution.id %>">
     </form>
     </p>
   <% end %>

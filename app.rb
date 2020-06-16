@@ -7,7 +7,7 @@ require './models/contribution.rb'
 
 
 get '/' do
-  @comments = Contribution.all.order('id desc')
+  @comments = Comment.all
   @contributions = Contribution.all
   @prefectures = Prefecture.all
   erb :index
@@ -31,18 +31,18 @@ post '/new' do
 end
 
 get '/prefectiures/:id/contributions/:c_id/comments' do
+  @contributions = Contribution.all
   @contribution = Contribution.find(params[:c_id])
-
+  @comments = @contribution.comments
 p '###############'
 p params
   erb :comment
 end
 
-
 post '/comment_create' do
-Comment.create(
-contribution_id: params[:contribution_id],
-body: params[:body]
-)
-redirect "/prefecture/#{params[:prefecture_id]}"
+  Comment.create(
+    contribution_id: params[:c_id],
+    body: params[:body]
+  )
+redirect "/prefectiures/:id/contributions/:c_id/comments"
 end
