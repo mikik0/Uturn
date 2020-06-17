@@ -8,7 +8,6 @@
 </head>
 <body>
 <h1><%= @prefecture.name %>の投稿内容を確認</h1>
-  <p>進路  文理</p>
   <% @contributions.each do |contribution| %>
   <% if contribution.prefecture_id == params[:id].to_i %>
     <p>
