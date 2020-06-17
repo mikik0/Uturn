@@ -9,14 +9,17 @@
 <body>
 <h1> オリジナルapp </h1>
 <div>
-<h2>見る</h2>
+<p>どこで就職しよう?地元に帰った方がいいのかな？それとも首都圏？</p>
+<p>悩んだ時に先輩たちの進路を見れるサイト。先輩たちの選択を参考にして自分の実現したいことを探しに行こう！！</p>
+<br>
+<h2>先輩たちの進路を見る(学生向け)</h2>
   <% @prefectures.each do |prefecture| %>
       <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a>
   <% end %>
 </div>
 <br>
 <div>
-<h2>投稿する</h2>
+<h2>投稿してみる(社会人向け)</h2>
 <form  action="/new" method="post">
   <label for="title">出身都道府県*</label>
    <form action="" method="post" >
@@ -37,7 +40,7 @@
 </form>
 </div>
 <br>
-<h3>投稿履歴</h3>
+<!-- <h3>投稿履歴</h3>
 <% @contributions.each do |contribution| %>
   <div>
     <ul>
@@ -49,7 +52,7 @@
     </li>
     </ul>
   </div>
-<% end %>
+<% end %> -->
 
 </body>
 </html>

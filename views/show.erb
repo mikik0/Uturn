@@ -13,10 +13,8 @@
   <% if contribution.prefecture_id == params[:id].to_i %>
     <p>
     <%= contribution.title%>
-    <%= contribution.body%>
-    <%= contribution.course%>
     <form action="/prefectiures/<%= @prefecture.id %>/contributions/<%= contribution.id %>/comments" method="get">
-      <input type="submit" value="コメントを見る/つける">
+      <input type="submit" value="詳細">
       <input type="hidden" name="c_id" value="<%=  contribution.id %>">
     </form>
     </p>
