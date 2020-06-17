@@ -35,13 +35,16 @@ get '/prefectiures/:id/contributions/:c_id/comments' do
   @comments = @contribution.comments
 p '##########################'
 p params[:id]
+p params[:c_id]
+p :c_id
   erb :comment
 end
 
 post '/comment_create' do
+  @contribution = Contribution.find(params[:c_id])
   Comment.create(
     contribution_id: params[:c_id],
     body: params[:body]
   )
-redirect "/prefectiures/:id/contributions/:c_id/comments"
+  redirect "/prefectiures/#{@contribution.prefecture_id}/contributions/#{params[:c_id]}/comments"
 end
