@@ -31,11 +31,10 @@ post '/new' do
 end
 
 get '/prefectiures/:id/contributions/:c_id/comments' do
-  @contributions = Contribution.all
   @contribution = Contribution.find(params[:c_id])
   @comments = @contribution.comments
-p '###############'
-p params
+p '##########################'
+p params[:id]
   erb :comment
 end
 
