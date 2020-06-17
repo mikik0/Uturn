@@ -25,12 +25,18 @@ post '/new' do
   Contribution.create({
     prefecture_id: params[:prefecture],
     course: params[:course],
+    title: params[:title],
     body: params[:body]
   })
   redirect '/'
 end
 
 get '/prefectiures/:id/contributions/:c_id/comments' do
+  @prefectures   = Prefecture.all
+  @prefecture    = Prefecture.find(params[:id])
+  @contributions = @prefecture.contributions
+  @comments = Comment.where(prefecture_id: params[:id])
+
   @contribution = Contribution.find(params[:c_id])
   @comments = @contribution.comments
 p '##########################'

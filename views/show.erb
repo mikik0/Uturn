@@ -8,10 +8,11 @@
 </head>
 <body>
 <h1><%= @prefecture.name %>の投稿内容を確認</h1>
-  <p style ="font-size: 18pt">進路  文理</p>
+  <p>進路  文理</p>
   <% @contributions.each do |contribution| %>
   <% if contribution.prefecture_id == params[:id].to_i %>
-    <p style ="font-size: 18pt">
+    <p>
+    <%= contribution.title%>
     <%= contribution.body%>
     <%= contribution.course%>
     <form action="/prefectiures/<%= @prefecture.id %>/contributions/<%= contribution.id %>/comments" method="get">

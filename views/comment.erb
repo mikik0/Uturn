@@ -11,6 +11,17 @@
 <body>
 <h1>コメントをする</h1>
 <br>
+<h3>本文・投稿内容</h3>
+<% @contributions.each do |contribution| %>
+  <% if contribution.id == params[:c_id].to_i %>
+    <p>
+    <%= contribution.course%>
+    <%= contribution.body%>
+    </p>
+  <% end %>
+<% end %>
+
+<br>
 
 <form action="/comment_create" method="post">
   <input type="hidden" name="c_id" value="<%= @contribution.id %>">
@@ -36,9 +47,9 @@
   <p>ないです</p>
 <% end %>
 
-<form action="/prefectures/1/contributions" method="get">
+<!-- <form action="/prefectures/:id/contributions" method="get">
     <input type="submit" value="前に戻る">
-</form>
+</form> -->
 <form action="/" method="get">
     <input type="submit" value="最初に戻る">
 </form>

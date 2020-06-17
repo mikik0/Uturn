@@ -19,15 +19,17 @@
 <h2>投稿する</h2>
 <form  action="/new" method="post">
   <label for="title">出身都道府県*</label>
-  <form action="" method="post" >
+   <form action="" method="post" >
       <select name="prefecture" id="prefecture">
        <% @prefectures.each do |prefecture| %>
         <option value="<%= prefecture.id %>"><%= prefecture.name %></option>
        <% end %>
       </select>
-  <p><label for="course">文理*: </label>
-  <label><input type="radio" name="course" value="理系" required>理系</label>
+   <p><label for="course">文理*: </label>
+   <label><input type="radio" name="course" value="理系" required>理系</label>
   <label><input type="radio" name="course" value="文系">文系</label></p>
+  <p><label for="text">タイトル*: </label>
+  <input type="text" name="title" required></p>
   <p><label for="freeText">進路*: </label>
   <textarea name="body" placeholder="例:地元就職、都市部就職、院進" required></textarea></p>
 
@@ -39,9 +41,12 @@
 <% @contributions.each do |contribution| %>
   <div>
     <ul>
-    <li><%= contribution.prefecture.try(:name) %>
+    <li>
+    <%= contribution.prefecture.try(:name) %>
     <%= contribution.course%>
-    <%= contribution.body%></li>
+    <%= contribution.title%>
+    <%= contribution.body%>
+    </li>
     </ul>
   </div>
 <% end %>
