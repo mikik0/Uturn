@@ -1,35 +1,48 @@
 body{
   background-color: rgb(253,253,253);
+  font-family: "M PLUS 1p";
 }
 p{
   font-size: 18px;
   margin: 10px;
 }
+.container{
+  margin: auto;
+}
+.explanation{
+  color: #f19fc1;
+}
 h1 {
-  color: #364e96;/*文字色*/
+  color: #fa4792;/*文字色*/
   padding: 0.5em 0;/*上下の余白*/
-  border-top: solid 3px #364e96;/*上線*/
-  border-bottom: solid 3px #364e96;/*下線*/
+  /* border-top: dashed 3px #d2ddff; 上線*/
+  border-bottom: dashed 3px #d2ddff;/*下線*/
 }
 h2 {
   margin: 2px;
 }
+header {
+  object-position: bottom;
+	position: relative;
+  height: 20vh;
+  background-image: url(../sun.jpg);
+  width:1680px;
+  height:300pX;
+  object-fit: cover;
+  background-repeat:  no-repeat;
+}
 .button {
-  display       : inline-block;
-  border-radius : 28%;          /* 角丸       */
-  font-size     : 8pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 8px 12px;   /* 余白       */
-  background    : #6666ff;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  border        : 2px solid #6666ff;    /* 枠の指定 */
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
 }
 .button:hover {
-  color         : #6666ff;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
+  background: #67c5ff;
+  color: white;
 }
 
 ul, ol {
