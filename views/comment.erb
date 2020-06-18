@@ -11,6 +11,7 @@
 <body>
 <h1>コメントをする</h1>
 <br>
+<div class="container">
 <h3>本文・投稿内容</h3>
 <% @contributions.each do |contribution| %>
   <% if contribution.id == params[:c_id].to_i %>
@@ -25,10 +26,15 @@
 
 <form action="/comment_create" method="post">
   <input type="hidden" name="c_id" value="<%= @contribution.id %>">
-  <textarea type="text" placeholder="コメントを入れてね" name="body" required></textarea>
-  <p><input type="submit" value="投稿"></p>
+  <textarea type="text" placeholder="コメントを入れてね" name="body" class="form-control" required></textarea>
+  <p><input type="submit" class="btn btn-outline-info" value="投稿"></p>
 </form>
 <br>
+<% if @contribution.comments.present?%>
+  <p>あなたもコメントをしてみよう！</p>
+<% else %>
+  <p>1番にコメントをつけてみよう！</p>
+<% end %>
 
 <% @comments.each do |comment| %>
   <div>
@@ -40,18 +46,12 @@
   </div>
 <% end %>
 
-<% if @contribution.comments.present?%>
-  <p>あなたもコメントをしてみよう！</p>
-<% else %>
-  <p>コメントはまだないよ</p>
-<% end %>
-
 <!-- <form action="/prefectures/:id/contributions" method="get">
     <input type="submit" value="前に戻る">
 </form> -->
 <form action="/" method="get">
-    <input type="submit" value="最初に戻る">
+    <input type="submit" class="btn btn-outline-secondary" value="最初に戻る">
 </form>
-
+</div>
 </body>
 </html>

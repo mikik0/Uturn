@@ -9,22 +9,26 @@
 </head>
 <body>
 <h1><%= @prefecture.name %>の投稿内容を確認</h1>
+<div class="container">
   <% @contributions.each do |contribution| %>
   <% if contribution.prefecture_id == params[:id].to_i %>
     <p>
     <%= contribution.title%>
     <form action="/prefectiures/<%= @prefecture.id %>/contributions/<%= contribution.id %>/comments" method="get">
-      <input type="submit" value="詳細">
+      <input type="submit" class="btn btn-outline-info btn-sm" value="詳細">
       <input type="hidden" name="c_id" value="<%=  contribution.id %>">
     </form>
     </p>
   <% end %>
 <% end %>
 
-
+<% if @prefecture.contributions.blank?%>
+  <p><%= @prefecture.name %>は投稿がまだありません。</p>
+<% end %>
+<br>
 <form action="/" method="get">
-    <input type="submit" value="最初に戻る">
+    <input type="submit" class="btn btn-outline-secondary" value="最初に戻る">
 </form>
-
+</div>
 </body>
 </html>
