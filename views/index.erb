@@ -17,17 +17,23 @@
 </div>
 </header>
 <br>
-<div class="container">
+<div class="row justify-content-md-center">
 <div class="border col-7">
  <div class="container">
 <h2>先輩たちの進路を見る(学生向け)</h2>
 <br>
   <% @prefectures.each do |prefecture| %>
       <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a>
+      <% if prefecture.id != 47 %>
+      /
+      <% end %>
   <% end %>
+  <br>
  </div>
 </div>
+</div>
 <br>
+<div class="row justify-content-md-center">
 <div class="border col-7">
 <div class="container">
 <h2>投稿してみる(社会人向け)</h2>
