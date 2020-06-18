@@ -29,13 +29,12 @@
   <textarea type="text" placeholder="コメントを入れてね" name="body" class="form-control" required></textarea>
   <p><input type="submit" class="btn btn-outline-info" value="投稿"></p>
 </form>
-<br>
 <% if @contribution.comments.present?%>
   <p>あなたもコメントをしてみよう！</p>
 <% else %>
   <p>1番にコメントをつけてみよう！</p>
 <% end %>
-
+<br>
 <% @comments.each do |comment| %>
   <div>
     <ul>
