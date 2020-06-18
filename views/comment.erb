@@ -19,6 +19,12 @@
     <%= contribution.course%>
     <%= contribution.body%>
     </p>
+    <div style="display:inline-flex">
+    <p><%= contribution.good %></p>
+    <form action="/good/<%= contribution.id %>" method="post">
+      <input type="submit" value="おめでとう！">
+    </form>
+    </div>
   <% end %>
 <% end %>
 

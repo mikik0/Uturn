@@ -26,7 +26,8 @@ post '/new' do
     prefecture_id: params[:prefecture],
     course: params[:course],
     title: params[:title],
-    body: params[:body]
+    body: params[:body],
+    good: 0
   })
   redirect '/'
 end
@@ -53,4 +54,13 @@ post '/comment_create' do
     body: params[:body]
   )
   redirect "/prefectiures/#{@contribution.prefecture_id}/contributions/#{params[:c_id]}/comments"
+end
+
+post '/good/:id' do
+  contribution = Contribution.find(params[:id])
+  good = contribution.good
+  contribution.update({
+    good: good+1
+  })
+  redirect "/prefectiures/#{contribution.prefecture_id}/contributions/#{params[:id]}/comments"
 end
