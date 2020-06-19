@@ -23,10 +23,35 @@
 <h2>先輩たちの進路を見る(学生向け)</h2>
 <br>
   <% @prefectures.each do |prefecture| %>
+    <% if prefecture.id == 1 %>
+      <p>北海道地方</p>
       <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a>
-      <% if prefecture.id != 47 %>
-      /
-      <% end %>
+    <% elsif prefecture.id == 2%>
+      <p>東北地方</p>
+      <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a> /
+    <% elsif prefecture.id == 8%>
+      <p>関東地方</p>
+      <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a> /
+    <% elsif prefecture.id == 15%>
+      <p>中部地方</p>
+      <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a> /
+    <% elsif prefecture.id == 24%>
+      <p>関西地方</p>
+      <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a> /
+    <% elsif prefecture.id == 31%>
+      <p>中国地方</p>
+      <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a> /
+    <% elsif prefecture.id == 36%>
+      <p>四国地方</p>
+      <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a> /
+    <% elsif prefecture.id == 40%>
+      <p>九州地方・沖縄地方</p>
+      <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a> /
+    <% elsif prefecture.id == 7 ||  prefecture.id == 14 ||  prefecture.id == 23  ||  prefecture.id == 30  || prefecture.id == 35 || prefecture.id == 39 ||prefecture.id == 47 %>
+      <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a>
+     <% else %>
+      <a href="/prefectures/<%= prefecture.id %>/contributions"><%= prefecture.name %></a> /
+    <% end %>
   <% end %>
   <br>
  </div>
@@ -48,6 +73,7 @@
         <option value="<%= prefecture.id %>"><%= prefecture.name %></option>
        <% end %>
       </select>
+
   </div>
   <div class="form-group">
     <p><label for="course">文理*: </label>
