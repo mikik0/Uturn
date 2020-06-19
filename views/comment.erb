@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
   <link rel="stylesheet" href="/assets/stylesheets/style.css">
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 </head>
@@ -19,11 +19,12 @@
   <% if contribution.id == params[:c_id].to_i %>
     <p><%= contribution.course%></p>
     <p><%= contribution.body%></p>
-    <div style="display:inline-flex">
+    <p><%= contribution.created_at%></p>
+    <div style="display:inline-flex" class="better">
     <form action="/good/<%= contribution.id %>" method="post">
-      <input type="submit" class="btn btn-outline-info btn-sm" value="いいね">
+      <input type="submit" class="btn btn-outline-info btn-sm" value="♡いいね " >
     </form>
-    <%= contribution.good %>
+    <i class="material-icons">favorite</i><%= contribution.good %>
     </div>
     <a data-text="先輩たちの就職をのぞいてみよう！" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <br>
@@ -46,7 +47,7 @@
   <div>
     <ul>
     <li>
-    <%= comment.id %>
+    <%= comment.id %>:
     <%= comment.body%>
     </li>
     </ul>

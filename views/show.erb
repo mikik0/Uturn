@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <h1><%= @prefecture.name %>の投稿内容を確認</h1>
@@ -14,6 +15,8 @@
   <% if contribution.prefecture_id == params[:id].to_i %>
     <p>
     <%= contribution.title%>
+    <i class="material-icons">favorite</i>
+<%= contribution.good %>
     <form action="/prefectiures/<%= @prefecture.id %>/contributions/<%= contribution.id %>/comments" method="get">
       <input type="submit" class="btn btn-outline-info btn-sm" value="詳細">
       <input type="hidden" name="c_id" value="<%=  contribution.id %>">
