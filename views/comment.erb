@@ -19,7 +19,7 @@
   <% if contribution.id == params[:c_id].to_i %>
     <p><%= contribution.course%></p>
     <p><%= contribution.body%></p>
-    <p><%= contribution.created_at%></p>
+    <p><%= contribution.created_at.to_s(:datetime_jp)%></p>
     <div style="display:inline-flex" class="better">
     <form action="/good/<%= contribution.id %>" method="post">
       <input type="submit" class="btn btn-outline-info btn-sm" value="♡いいね " >
