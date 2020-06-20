@@ -43,17 +43,21 @@
   <p>1番にコメントをつけてみよう！</p>
 <% end %>
 <br>
-<% @comments.each do |comment| %>
-  <div>
-    <ul>
+<div class="card">
+  <div class="card-body">
+<% @comments.each_with_index do |comment, i| %>
+  <div class="card">
+    <div class="card-body">
     <li>
-    <%= comment.id %>:
+    <%= i + 1 %>  :
     <%= comment.body%>
     </li>
-    </ul>
-  </div>
+     </div>
+    </div>
 <% end %>
-
+  </div>
+</div>
+<br>
 <!-- <form action="/prefectures/:id/contributions" method="get">
     <input type="submit" value="前に戻る">
 </form> -->
