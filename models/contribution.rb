@@ -9,5 +9,5 @@ class Contribution < ActiveRecord::Base
 end
 
 class Comment < ActiveRecord::Base
-  belongs_to :contribution
+
 end

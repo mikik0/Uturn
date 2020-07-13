@@ -45,11 +45,13 @@
 <br>
 <div class="card">
   <div class="card-body">
-<% @comments.each_with_index do |comment, i| %>
+  <% index = 0  %>
+<% @comments.each do |comment| %>
+  <% index = index + 1%>
   <div class="card">
     <div class="card-body">
     <li>
-    <%= i + 1 %>  :
+    <%= index %>  :
     <%= comment.body%>
     </li>
      </div>
@@ -58,9 +60,7 @@
   </div>
 </div>
 <br>
-<!-- <form action="/prefectures/:id/contributions" method="get">
-    <input type="submit" value="前に戻る">
-</form> -->
+
 <form action="/" method="get">
     <input type="submit" class="btn btn-outline-secondary" value="最初に戻る">
 </form>
