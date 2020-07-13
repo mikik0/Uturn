@@ -38,7 +38,7 @@ get '/prefectiures/:id/contributions/:c_id/comments' do
   @contributions = @prefecture.contributions
 
   @contribution = Contribution.find(params[:c_id])
-  @comments = @contribution.comments.order(created_at: :desc)
+  @comments = @contribution.comments
 p '##########################'
 p params[:id]
 p params[:c_id]

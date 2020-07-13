@@ -45,13 +45,11 @@
 <br>
 <div class="card">
   <div class="card-body">
-  <% index = 0  %>
-<% @comments.each do |comment| %>
-  <% index = index + 1%>
+<% @comments.each_with_index.reverse_each do |comment,i| %>
   <div class="card">
     <div class="card-body">
     <li>
-    <%= index %>  :
+    <%= i + 1 %>  :
     <%= comment.body%>
     </li>
      </div>
